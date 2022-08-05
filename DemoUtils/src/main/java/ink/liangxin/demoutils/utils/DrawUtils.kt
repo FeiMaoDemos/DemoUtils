@@ -1,6 +1,7 @@
-package ink.liangxin.demoutils
+package ink.liangxin.demoutils.utils
 
 import android.content.Context
+import ink.liangxin.demoutils.AppInfo
 
 /**
  * 将dp值转换为px
