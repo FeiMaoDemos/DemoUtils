@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "DemoUtils"
+include ':App'
 include ':DemoUtils'
