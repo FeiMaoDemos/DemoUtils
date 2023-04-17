@@ -37,7 +37,7 @@ abstract class ActivityListActivity : AppCompatActivity() {
 	/**
 	 * 如果需要权限，把所有需要申请的权限列在这里
 	 * */
-	abstract val permissions: List<String>
+	abstract val permissions: List<String>?
 
 	/**
 	 * 权限申请成功要执行的代码
@@ -55,11 +55,11 @@ abstract class ActivityListActivity : AppCompatActivity() {
 		super.onStart()
 		recyclerView.initActivityList(this)
 
-		val need = permissions.filter {
+		val need = permissions?.filter {
 			ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
 		}
 
-		if(need.isEmpty().not()){
+		if(need?.isEmpty() == false){
 			ActivityCompat.requestPermissions(this, need.toTypedArray(), REQUEST_PERMISSION_CODE)
 		}else{
 			permissionsCallback?.invoke()
